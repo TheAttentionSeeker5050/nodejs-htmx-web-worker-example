@@ -1,0 +1,25 @@
+{
+  "name": "web-worker-example-background-download",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "sass": "node-sass --watch public/sass/main.scss -o public/css"
+  },
+  "keywords": [
+    "Web Worker",
+    "Background Download",
+    "Node.js",
+    "Express.js",
+    "Fetch API"
+  ],
+  "author": "Nicolas Castellano",
+  "license": "ISC",
+  "description": "This is a tech demonstration of the web worker API in the browser. It has a button to download a file and has a background worker using the fetch API, and another web worker to display a fill wheel animation.",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "node-sass": "^9.0.0"
+  }
+}
