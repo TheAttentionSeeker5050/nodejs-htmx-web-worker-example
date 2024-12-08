@@ -1,16 +1,18 @@
 
 
 <div class="container">
-<!-- Download Button -->
-<button class="download-btn">
-    Download Video
-</button>
+    <!-- Download Button -->
+    <button id="download-btn" class="download-btn">
+        Download Video
+    </button>
 
-<p>{{ message }}</p>
-<!-- Animation Placeholder -->
-<div class="animation-placeholder">
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
+    <p id="message" class="hidden">{{ message }}</p>
+    <!-- Animation Placeholder -->
+    <div id="animation-placeholder" class="animation-placeholder hidden">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
 </div>
-</div>
+
+<script src="/js/ui-worker-helper.js"></script>

@@ -23,9 +23,17 @@ header {
   padding: 10px 20px;
   text-align: center;
   font-family: $font-secondary;
-  font-size: 1.5rem;
   text-transform: uppercase;
-  font-weight: 700;
+  
+  h1 {
+    font-weight: 700;
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-weight: 400;
+    font-size: 1rem;
+  }
 }
 
 /* Main Content */
@@ -58,12 +66,17 @@ main {
   background-color: darken($green, 10%);
 }
 
+/* Hidden Class */
+.hidden {
+  display: none !important;
+}
+
 /* Text Message */
 .container p {
   font-family: $font-primary;
   color: $grayish;
   margin: 15px 0;
-  font-size: 1rem;
+  // font-size: 1rem;
 }
 
 /* Animation Placeholder */
