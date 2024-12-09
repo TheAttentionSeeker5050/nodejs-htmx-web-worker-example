@@ -23,8 +23,8 @@ This project demonstrates the use of **Node.js**, **Express**, **HTMX**, and **W
 │   ├── files/
 │   │   └── placeholder-video.mp4 # Example video file for download
 │   └── js/
-│       ├── worker-helper.js   # Main script handling UI and worker messages
-│       └── download-worker.js # Web worker for downloading the file
+│       ├── ui-worker-helper.js # Main script handling UI and worker messages
+│       └── download-worker.js  # Web worker for downloading the file
 ├── views/
 │   ├── index.html             # Main layout file
 │   └── partials/
@@ -32,6 +32,7 @@ This project demonstrates the use of **Node.js**, **Express**, **HTMX**, and **W
 ├── app.js                     # Express server configuration
 ├── sass/
 │   └── main.scss              # SASS file for styles
+├── project-gif-screenshot.gif # Animated screenshot showcasing the project
 └── README.md                  # Project documentation
 ```
 
@@ -49,7 +50,7 @@ This project demonstrates the use of **Node.js**, **Express**, **HTMX**, and **W
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/your-username/htmx-download-demo.git
+   git clone https://github.com/TheAttentionSeeker5050/nodejs-htmx-web-worker-example
    cd htmx-download-demo
    ```
 
