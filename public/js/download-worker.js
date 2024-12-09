@@ -23,7 +23,12 @@ self.onmessage = async (event) => {
         // Update the downloaded size and send progress
         downloadedSize += value.length;
         const progress = Math.round((downloadedSize / totalSize) * 100);
-        self.postMessage({ status: "progress", progress });
+        self.postMessage({
+          status: "progress",
+          progress,
+          downloadedSize,
+          totalSize,
+        });
 
         // Push the chunk to the chunks array
         chunks.push(value);

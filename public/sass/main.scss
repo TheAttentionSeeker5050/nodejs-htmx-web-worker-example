@@ -118,6 +118,20 @@ main {
   display: none;
 }
 
+// Progress Text, shows the percentage of the download, in the format of "X mb of Y mb", this can be mb, kb, or gb
+.progress-text {
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  color: #333;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.progress-text.hidden {
+  display: none;
+}
+
+
 
 @keyframes bounce {
   0%, 80%, 100% {
