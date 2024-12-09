@@ -1,0 +1,111 @@
+# HTMX File Download with Completion Animation
+
+This project demonstrates the use of **Node.js**, **Express**, **HTMX**, and **Web Workers** to create a simple file download application with a visually appealing progress indicator. The app features a completion wheel animation that fills up as the download progresses, alongside a textual display of the percentage and file size.
+
+---
+
+## Features
+
+- **Dynamic Progress Animation**: A completion wheel that visually fills up based on the download progress.
+- **File Size Display**: Shows the percentage of the file downloaded and the current size in MB/KB/GB.
+- **Web Workers**: Leverages a web worker for downloading the file and tracking the progress without blocking the main thread.
+- **Responsive Design**: Styled with a modern green and grayish accent palette using **SASS**.
+- **HTMX Integration**: Enables dynamic UI updates without full page reloads.
+
+---
+
+## Project Structure
+
+```plaintext
+├── public/
+│   ├── css/
+│   │   └── main.css           # Compiled CSS from SASS
+│   ├── files/
+│   │   └── placeholder-video.mp4 # Example video file for download
+│   └── js/
+│       ├── worker-helper.js   # Main script handling UI and worker messages
+│       └── download-worker.js # Web worker for downloading the file
+├── views/
+│   ├── index.html             # Main layout file
+│   └── partials/
+│       └── content.html       # Content template for rendering inner UI
+├── app.js                     # Express server configuration
+├── sass/
+│   └── main.scss              # SASS file for styles
+└── README.md                  # Project documentation
+```
+
+---
+
+## Requirements
+
+- **Node.js** (v16+ recommended)
+- **npm** (Node Package Manager)
+
+---
+
+## Installation
+
+1. Clone this repository:
+
+   ```bash
+   git clone https://github.com/your-username/htmx-download-demo.git
+   cd htmx-download-demo
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Compile SASS to CSS:
+
+   ```bash
+   npm run sass
+   ```
+
+4. Start the server:
+
+   ```bash
+   npm start
+   ```
+
+5. Open your browser and navigate to [http://localhost:3000](http://localhost:3000).
+
+---
+
+## How It Works
+
+1. **UI Setup**: The main UI consists of a download button and a hidden completion wheel with progress text.
+2. **File Download**:
+   - On button click, the web worker begins fetching the file in chunks.
+   - The worker tracks the download progress, total file size, and downloaded size.
+3. **Progress Updates**:
+   - The main thread updates the completion wheel and progress text every 500ms with data from the worker.
+4. **Completion**:
+   - Upon download completion, the wheel fills up entirely, and the file is saved locally.
+
+---
+
+## Scripts
+
+- **`npm start`**: Starts the Express server.
+- **`npm run sass`**: Compiles SASS files into CSS.
+
+---
+
+## Technologies Used
+
+- **Node.js**: Backend server
+- **Express**: Web framework
+- **HTMX**: For dynamic UI updates
+- **Web Workers**: For background processing
+- **SASS**: For styling
+- **EJS**: Template engine
+
+---
+
+## Screenshot
+
+![App Screenshot](./project-gif-screenshot.gif)
