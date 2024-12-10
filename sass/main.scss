@@ -1,6 +1,18 @@
+@use 'sass:color';
+
 /* Variables */
 $green: #28a745;
+$green-dark: #106e26;
+$green-font: #12802b;
+$green-font-hover: #28b349;
+$green-font-light: #1ada47;
+$green-font-light-hover: #06fa3f;
+
+
+$danger: #da0202;
+$danger-hover: #f70505;
 $grayish: #6c757d;
+$dark-gray: #606264;
 $background: #f8f9fa;
 $font-primary: 'Roboto', sans-serif;
 $font-secondary: 'Montserrat', sans-serif;
@@ -49,22 +61,23 @@ main {
 }
 
 /* Download Button */
-.download-btn {
-  background-color: $green;
-  color: white;
-  font-family: $font-secondary;
-  font-size: 1.2rem;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
+// .download-btn {
+//   background-color: $green;
+//   color: white;
+//   font-family: $font-secondary;
+//   font-size: 1.2rem;
+//   padding: 10px 20px;
+//   border: none;
+//   border-radius: 5px;
+//   cursor: pointer;
+//   transition: background-color 0.3s ease;
+//   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+// }
 
-.download-btn:hover {
-  background-color: darken($green, 10%);
-}
+// .download-btn:hover {
+//   // background-color: darken($green, 10%);
+//   background-color: color.scale($green, $lightness: -10%); // #002447
+// }
 
 /* Hidden Class */
 .hidden {
@@ -78,33 +91,9 @@ main {
   margin: 15px 0;
 }
 
-/* Animation Placeholder */
-.animation-placeholder {
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-}
-
-.dot {
-  width: 12px;
-  height: 12px;
-  background-color: $grayish;
-  border-radius: 50%;
-  animation: bounce 1.5s infinite ease-in-out;
-}
-
-.dot:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.dot:nth-child(3) {
-  animation-delay: 0.4s;
-}
-
 // Completion Wheel, when downloading shows a ring that fills up from 0% to 100% depending on the percentage of the download
-.completion-wheel {
+
+#completion-wheel {
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -114,12 +103,12 @@ main {
   transition: $background 0.5s ease-in-out;
 }
 
-.completion-wheel.hidden {
+#completion-wheel.hidden {
   display: none;
 }
 
 // Progress Text, shows the percentage of the download, in the format of "X mb of Y mb", this can be mb, kb, or gb
-.progress-text {
+#progress-text {
   text-align: center;
   font-family: "Roboto", sans-serif;
   color: #333;
@@ -127,11 +116,84 @@ main {
   font-size: 14px;
 }
 
-.progress-text.hidden {
+#progress-text.hidden {
   display: none;
 }
 
+#download-queue, #video-list {
+  list-style: none;
+}
 
+#download-queue {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 0;
+  
+  .download-queue-item {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    width: 100%;
+    max-width: 600px;
+    justify-content: space-between;
+
+    span {
+      color: $green-font;
+      font-size: 1.2rem;
+      cursor: none;
+    }
+
+    button {
+      color: white;
+      border-radius: 8px;
+      background-color: $danger;
+      border: none;
+    }
+
+    button:hover {
+      background-color: $danger-hover;
+    }
+  }
+}
+
+button {
+  padding: 4px 8px;
+  font-size: 1.2rem;
+}
+
+.button-transparent {
+  background-color: transparent;
+  border: none;
+}
+
+.text-clickable-green {
+  color: $green-font;
+  cursor: pointer;
+}
+
+.text-clickable-green:hover {
+  color: $green-font-hover;
+}
+
+footer {
+  font-family:Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: 1.1rem;
+  background-color: $dark-gray;
+  color: white;
+  a {
+    font-weight: 500;
+    color: $green-font-light;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: $green-font-light-hover;
+    text-decoration: underline;
+  }
+}
 
 @keyframes bounce {
   0%, 80%, 100% {

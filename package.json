@@ -2,10 +2,14 @@
   "name": "web-worker-example-background-download",
   "version": "1.0.0",
   "main": "index.js",
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "sass": "node-sass --watch sass/main.scss -o public/css"
+    "sass": "sass --watch sass:public/css",
+    "dev": "nodemon index.js"
   },
   "keywords": [
     "Web Worker",
@@ -20,6 +24,10 @@
   "dependencies": {
     "ejs": "^3.1.10",
     "express": "^4.21.2",
-    "node-sass": "^9.0.0"
+    "sass-embedded": "^1.82.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7",
+    "sass": "^1.82.0"
   }
 }
