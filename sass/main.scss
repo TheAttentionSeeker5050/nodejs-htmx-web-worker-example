@@ -5,9 +5,11 @@ $green: #28a745;
 $green-dark: #106e26;
 $green-font: #12802b;
 $green-font-hover: #28b349;
+$green-font-light: #1ada47;
 $danger: #da0202;
 $danger-hover: #f70505;
 $grayish: #6c757d;
+$dark-gray: #606264;
 $background: #f8f9fa;
 $font-primary: 'Roboto', sans-serif;
 $font-secondary: 'Montserrat', sans-serif;
@@ -170,6 +172,19 @@ button {
 
 .text-clickable-green:hover {
   color: $green-font-hover;
+}
+
+footer {
+  font-family:Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: 1.1rem;
+  background-color: $dark-gray;
+  color: white;
+  a {
+    font-weight: 500;
+    color: $green-font-light;
+    text-decoration: none;
+  }
 }
 
 @keyframes bounce {
