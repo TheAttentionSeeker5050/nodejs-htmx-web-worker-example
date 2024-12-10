@@ -1,0 +1,35 @@
+<%- header %>
+
+<div class="container">
+
+    <!-- a list of transparent buttons with green text -->
+    <h2 class="video-list-title">Video List</h2>
+    <ul id="video-list" class="video-list">
+        <% videosList.forEach(video => { %>
+            <li class="video-list-item">
+                <button class="video-list-item-btn button-transparent text-clickable-green" data-video="<%= video %>"> <!-- data-video is the name of the video, these data attributes are used to store custom data using semantic HTML, with this we will build the list back on the client side web worker -->
+                    <%= video %>
+                </button>
+            </li>
+        <% }) %>
+    </ul>
+
+    <!-- list for the download queue -->
+    <h2 id="download-queue-title" class="download-queue-title hidden">Download Queue</h2>
+    <ul id="download-queue" class="download-queue">
+    </ul>
+
+    <p id="message" class="hidden">{{ message }}</p>
+
+    <!-- Progress Wheel -->
+    <div id="completion-wheel" class="completion-wheel hidden"></div>
+
+    <!-- progress text -->
+    <p id="progress-text" class="progress-text hidden"></p>
+
+</div>
+
+<script src="/js/ui-worker-helper.js" type="module"></script>
+
+
+<%- footer %>
