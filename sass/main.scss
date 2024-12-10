@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 /* Variables */
 $green: #28a745;
 $grayish: #6c757d;
@@ -63,7 +65,8 @@ main {
 }
 
 .download-btn:hover {
-  background-color: darken($green, 10%);
+  // background-color: darken($green, 10%);
+  background-color: color.scale($green, $lightness: -10%); // #002447
 }
 
 /* Hidden Class */
