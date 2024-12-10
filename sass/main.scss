@@ -6,6 +6,9 @@ $green-dark: #106e26;
 $green-font: #12802b;
 $green-font-hover: #28b349;
 $green-font-light: #1ada47;
+$green-font-light-hover: #06fa3f;
+
+
 $danger: #da0202;
 $danger-hover: #f70505;
 $grayish: #6c757d;
@@ -184,6 +187,11 @@ footer {
     font-weight: 500;
     color: $green-font-light;
     text-decoration: none;
+  }
+
+  a:hover {
+    color: $green-font-light-hover;
+    text-decoration: underline;
   }
 }
 
