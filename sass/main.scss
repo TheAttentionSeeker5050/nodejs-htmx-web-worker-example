@@ -26,6 +26,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  justify-content: space-between;
 }
 
 /* Header */
@@ -39,45 +40,42 @@ header {
   
   h1 {
     font-weight: 700;
-    font-size: 1.5rem;
   }
 
   p {
     font-weight: 400;
-    font-size: 1rem;
   }
 }
 
-/* Main Content */
+/* Main */
 main {
-  flex: 1;
-  padding: 20px;
-  text-align: center;
+  flex-grow: 1;
 }
 
 /* Container */
 .container {
   margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: stretch;
+  gap: 16px;
+  max-width: 600px;
+  padding: 20px;
+  margin: auto;
+  text-align: center;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: stretch;
+    justify-content: stretch;
+  }
 }
-
-/* Download Button */
-// .download-btn {
-//   background-color: $green;
-//   color: white;
-//   font-family: $font-secondary;
-//   font-size: 1.2rem;
-//   padding: 10px 20px;
-//   border: none;
-//   border-radius: 5px;
-//   cursor: pointer;
-//   transition: background-color 0.3s ease;
-//   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-// }
-
-// .download-btn:hover {
-//   // background-color: darken($green, 10%);
-//   background-color: color.scale($green, $lightness: -10%); // #002447
-// }
 
 /* Hidden Class */
 .hidden {
@@ -86,9 +84,23 @@ main {
 
 /* Text Message */
 .container p {
-  font-family: $font-primary;
   color: $grayish;
-  margin: 15px 0;
+}
+
+p, span {
+  font-size: 1.1rem;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+h2 {
+  font-size: 1.3rem;
+}
+
+button {
+  font-size: 1.2rem;
 }
 
 // Completion Wheel, when downloading shows a ring that fills up from 0% to 100% depending on the percentage of the download
@@ -109,39 +121,24 @@ main {
 
 // Progress Text, shows the percentage of the download, in the format of "X mb of Y mb", this can be mb, kb, or gb
 #progress-text {
-  text-align: center;
-  font-family: "Roboto", sans-serif;
   color: #333;
   margin-top: 10px;
-  font-size: 14px;
 }
 
 #progress-text.hidden {
   display: none;
 }
 
-#download-queue, #video-list {
-  list-style: none;
-}
-
 #download-queue {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  padding: 0;
+  gap: 8px;
   
   .download-queue-item {
     display: flex;
-    flex-direction: row;
     gap: 8px;
-    width: 100%;
-    max-width: 600px;
     justify-content: space-between;
 
     span {
       color: $green-font;
-      font-size: 1.2rem;
       cursor: none;
     }
 
@@ -160,7 +157,6 @@ main {
 
 button {
   padding: 4px 8px;
-  font-size: 1.2rem;
 }
 
 .button-transparent {
@@ -178,9 +174,8 @@ button {
 }
 
 footer {
-  font-family:Arial, Helvetica, sans-serif;
+  font-family: $font-secondary;
   text-align: center;
-  font-size: 1.1rem;
   background-color: $dark-gray;
   color: white;
   a {
