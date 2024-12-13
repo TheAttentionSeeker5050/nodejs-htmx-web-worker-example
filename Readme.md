@@ -1,14 +1,15 @@
-# HTMX File Download with Completion Animation
+# HTMX File Download with Completion Wheel Animation
 
-This project demonstrates the use of **Node.js**, **Express**, **HTMX**, and **Web Workers** to create a simple file download application with a visually appealing progress indicator. The app features a completion wheel animation that fills up as the download progresses, alongside a textual display of the percentage and file size.
+This project demonstrates the use of **Node.js**, **Express**, **HTMX**, and **Web Workers** to create a file download application with a visually engaging progress indicator. The app features a completion wheel animation that fills up as the download progresses, alongside a textual display of the percentage and file size.
 
 ---
 
 ## Features
 
-- **Dynamic Progress Animation**: A completion wheel that visually fills up based on the download progress.
-- **File Size Display**: Shows the percentage of the file downloaded and the current size in MB/KB/GB.
-- **Web Workers**: Leverages a web worker for downloading the file and tracking the progress without blocking the main thread.
+- **Dynamic Progress Animation**: A visually engaging completion wheel fills up based on the download progress.
+- **File Size Display**: Shows the percentage of the file downloaded and the size in MB/KB/GB.
+- **Web Workers**: Background file downloading and progress tracking without blocking the main thread.
+- **Dynamic Video List**: Automatically generates download buttons for video files in the `/public/files` directory.
 - **Responsive Design**: Styled with a modern green and grayish accent palette using **SASS**.
 - **HTMX Integration**: Enables dynamic UI updates without full page reloads.
 
@@ -40,7 +41,7 @@ This project demonstrates the use of **Node.js**, **Express**, **HTMX**, and **W
 
 ## Requirements
 
-- **Node.js** (v16+ recommended)
+- **Node.js** (v22 recommended)
 - **npm** (Node Package Manager)
 
 ---
@@ -51,7 +52,7 @@ This project demonstrates the use of **Node.js**, **Express**, **HTMX**, and **W
 
    ```bash
    git clone https://github.com/TheAttentionSeeker5050/nodejs-htmx-web-worker-example
-   cd htmx-download-demo
+   cd nodejs-htmx-web-worker-example
    ```
 
 2. Install dependencies:
@@ -78,13 +79,14 @@ This project demonstrates the use of **Node.js**, **Express**, **HTMX**, and **W
 
 ## How It Works
 
-1. **UI Setup**: The main UI consists of a download button and a hidden completion wheel with progress text.
-2. **File Download**:
-   - On button click, the web worker begins fetching the file in chunks.
-   - The worker tracks the download progress, total file size, and downloaded size.
-3. **Progress Updates**:
+1. **UI Setup**: The main UI includes a list of videos, download buttons, a hidden completion wheel, and progress text.
+2. **Dynamic Video List**: Videos stored in `/public/files` are dynamically listed on the page, allowing easy file management.
+3. **File Download**:
+   - On button click, the web worker fetches the file in chunks.
+   - The worker tracks progress, total file size, and downloaded size.
+4. **Progress Updates**:
    - The main thread updates the completion wheel and progress text every 500ms with data from the worker.
-4. **Completion**:
+5. **Completion**:
    - Upon download completion, the wheel fills up entirely, and the file is saved locally.
 
 ---
@@ -109,4 +111,4 @@ This project demonstrates the use of **Node.js**, **Express**, **HTMX**, and **W
 
 ## Screenshot
 
-![App Screenshot](./project-gif-screenshot.gif)
+![App Screenshot](./project-gif-screenshot-2.gif)
