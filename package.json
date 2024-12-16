@@ -9,6 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "sass": "sass --watch sass:public/css",
+    "sass:build": "sass sass:public/css --style compressed",
     "dev": "nodemon index.js"
   },
   "keywords": [
