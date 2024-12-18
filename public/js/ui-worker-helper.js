@@ -1,5 +1,8 @@
 import { formatSize, hideDownloadProgressAnimations, unhideDownloadProgressAnimations, progressText, completionWheel, message, downloadQueueTitle, videoBtnList } from "./utils.js";
 
+// import player buttons
+import { videoPlayer, playerLoadingWheel, playPauseBtn, volumeBar, muteBtn, fullScreenBtn, seekBar } from "./player-elements.js";
+
 document.addEventListener("DOMContentLoaded", () => {
 
   let downloadQueue = [];

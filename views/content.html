@@ -2,6 +2,27 @@
 
 <div class="container">
 
+    <!-- make a video widget -->
+    <div id="video-player-widget" class="">
+        <video id="video-player" class="" width="500" type="video/mp4" src="/stream/canada.mp4"></video>
+        <div id="video-player-controls" class="">
+            <button id="play-pause-btn" class="button-transparent text-clickable-green" aria-label="play-pause-button">Play</button>
+            <div>
+                <input id="seek-bar" class="" type="range" value="0" min="0" aria-label="seek-bar">
+                <div id="progress-bar-download-buffer"></div>
+            </div>
+            <button id="mute-btn" class="button-transparent text-clickable-green" aria-label="mute-button">Mute</button>
+            <input id="volume-bar" class="" type="range" min="0" max="1" step="0.1" value="1" aria-label="volume-bar">
+            <button id="full-screen-btn" class="button-transparent text-clickable-green" aria-label="full-screen-button">Full-Screen</button>
+        </div>
+
+        <!-- a spinning wheel to show the data is loading -->
+        <div id="player-loading-wheel" class="hidden">Data Wheel here</div>
+
+        <!-- show an error messaage icon on stalled event -->
+        <div id="player-error-icon" class="hidden">Error Icon here</div>
+    </div>
+
     <!-- a list of transparent buttons with green text -->
     <h2 class="video-list-title">Video List</h2>
     <ul id="video-list" class="video-list">
@@ -28,6 +49,7 @@
 
 </div>
 
+<script src="/js/player-elements.js" type="module"></script>
 <script src="/js/ui-worker-helper.js" type="module"></script>
 
 
