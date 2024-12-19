@@ -28,6 +28,7 @@ const allVideos = [
 const headerPath = path.join(__dirname, "views/partials/header.html");
 const footerPath = path.join(__dirname, "views/partials/footer.html");
 const playerPath = path.join(__dirname, "views/partials/player.html");
+const playlistPath = path.join(__dirname, "views/partials/playlist.html");
 
 // Routes
 app.get("/", (req, res) => {
@@ -35,6 +36,7 @@ app.get("/", (req, res) => {
     header: require("fs").readFileSync(headerPath, "utf-8"),
     footer: require("fs").readFileSync(footerPath, "utf-8"),
     player: require("fs").readFileSync(playerPath, "utf-8"),
+    playlist: require("fs").readFileSync(playlistPath, "utf-8"),
     videosList: allVideos,
     });
 });

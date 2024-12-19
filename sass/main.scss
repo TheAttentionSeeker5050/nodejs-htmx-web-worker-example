@@ -1,21 +1,8 @@
 @use 'sass:color';
 
-/* Variables */
-$green: #28a745;
-$green-dark: #106e26;
-$green-font: #12802b;
-$green-font-hover: #28b349;
-$green-font-light: #1ada47;
-$green-font-light-hover: #06fa3f;
+// import colors.scss
+@use 'colors.scss' as *;
 
-
-$danger: #da0202;
-$danger-hover: #f70505;
-$grayish: #6c757d;
-$dark-gray: #606264;
-$background: #f8f9fa;
-$font-primary: 'Roboto', sans-serif;
-$font-secondary: 'Montserrat', sans-serif;
 
 /* Global Styles */
 body {
@@ -31,7 +18,7 @@ body {
 
 /* Header */
 header {
-  background-color: darken($green, 5%);
+  background-color: darken($blue, 5%);
   color: white;
   padding: 10px 20px;
   text-align: center;
@@ -64,17 +51,6 @@ main {
   padding: 20px;
   margin: auto;
   text-align: center;
-
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    align-items: stretch;
-    justify-content: stretch;
-  }
 }
 
 /* Hidden Class */
@@ -138,7 +114,7 @@ button {
     justify-content: space-between;
 
     span {
-      color: $green-font;
+      color: $blue-font;
       cursor: none;
     }
 
@@ -165,12 +141,12 @@ button {
 }
 
 .text-clickable-green {
-  color: $green-font;
+  color: $blue-font;
   cursor: pointer;
 }
 
 .text-clickable-green:hover {
-  color: $green-font-hover;
+  color: $blue-font-hover;
 }
 
 footer {
@@ -180,12 +156,12 @@ footer {
   color: white;
   a {
     font-weight: 500;
-    color: $green-font-light;
+    color: $blue-font-light;
     text-decoration: none;
   }
 
   a:hover {
-    color: $green-font-light-hover;
+    color: $blue-font-light-hover;
     text-decoration: underline;
   }
 }

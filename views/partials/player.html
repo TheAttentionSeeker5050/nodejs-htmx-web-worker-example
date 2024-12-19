@@ -1,8 +1,5 @@
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&icon_names=fullscreen,pause_circle,play_circle,skip_next,skip_previous,volume_off,volume_up" rel="stylesheet" />
-
-
-
 <!-- make a video widget -->
+<link rel="stylesheet" href="/css/spinner.css">
 <div id="video-player-widget" class="">
     <div id="video-player-widget-wrapper" class="">
         <video id="video-player" class="" type="video/mp4" src="/stream/canada.mp4">
@@ -25,8 +22,18 @@
             </button>
         </div>
 
+        <div id="big-play-btn-wrapper" class="">
+            <button id="big-play-btn" class="button-transparent text-clickable-green" aria-label="big-play-button">
+                <span class="material-symbols-outlined">
+                    play_circle
+                </span>
+            </button>
+        </div>
+        
         <!-- a spinning wheel to show the data is loading -->
-        <div id="player-loading-wheel" class="hidden">Data Wheel here</div>
+        <div id="player-loading-wheel-wrapper" class="hidden">
+            <div id="player-loading-wheel"></div>
+        </div>
 
         <!-- show an error messaage icon on stalled event -->
         <div id="player-error-icon" class="hidden">Error Icon here</div>

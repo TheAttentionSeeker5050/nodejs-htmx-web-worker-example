@@ -3,9 +3,9 @@ import { formatSize, hideDownloadProgressAnimations, unhideDownloadProgressAnima
 // import player buttons
 import { videoPlayer, playerLoadingWheel, playPauseBtn, volumeBar, muteBtn, fullScreenBtn, seekBar } from "./player-elements.js";
 
-document.addEventListener("DOMContentLoaded", () => {
+import { playlist, addVideoToPlaylist } from "./playlist-elements.js";
 
-  console.log("DOM fully loaded and parsed");
+document.addEventListener("DOMContentLoaded", () => {
 
   let downloadQueue = [];
 
@@ -14,7 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
   videoBtnList.forEach((video) => {
     video.addEventListener("click", () => {
       const videoName = video.getAttribute("data-video");
-      if (!downloadQueue.includes(videoName)) {
+      const clickAction = video.getAttribute("data-action");
+      if (!downloadQueue.includes(videoName) && clickAction === "download") {
         downloadQueue.push(videoName);
         addToDOMList(videoName); // Display the download list in the DOM
 
@@ -26,6 +27,10 @@ document.addEventListener("DOMContentLoaded", () => {
       
           videoDownloadWorker.postMessage({ url: `/files/${downloadQueue[0]}`, status: "progress" });
         }
+      } else if (clickAction === "play") {
+        console.log("Playing video: ", videoName);
+      } else if (clickAction === "add-to-playlist") {
+        addVideoToPlaylist(videoName);
       }
     });
   });

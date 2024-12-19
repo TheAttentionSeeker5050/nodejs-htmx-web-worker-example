@@ -5,7 +5,7 @@ const message = document.getElementById("message");
 const downloadQueueTitle = document.getElementById("download-queue-title");
 
 // Add a list of all the available videos to download
-const videoBtnList = document.querySelectorAll(".video-list-item button");
+const videoBtnList = document.querySelectorAll(".list-item button");
 
 
 // Functions to hide and unhide video animations

@@ -8,12 +8,15 @@ const seekBar = document.getElementById("seek-bar");
 const playerLoadingWheel = document.getElementById("player-loading-wheel");
 const playerErrorIcon = document.getElementById("player-error-icon");
 const progressBarDownloadBuffer = document.getElementById("progress-bar-download-buffer");
+const bigPlayButtonWrapper = document.getElementById("big-play-btn-wrapper");
+const bigPlayButton = document.getElementById("big-play-btn");
 
 let bufferTimeStart = 0;
 let videoBitRate = 0;
 
 // event listeners for these buttons
 playPauseBtn.addEventListener("click", playPauseVideo);
+bigPlayButton.addEventListener("click", playPauseVideo);
 
 volumeBar.addEventListener("change", changeVolume);
 
@@ -47,11 +50,12 @@ videoPlayer.addEventListener("progress", updateDownloadBuffer);
 function playPauseVideo() {
     if (videoPlayer.paused) {
         videoPlayer.play();
-
+        bigPlayButtonWrapper.classList.add("hidden");
         playPauseBtn.childNodes[0].innerText = "pause_circle";
 
     } else {
         videoPlayer.pause();
+        bigPlayButtonWrapper.classList.remove("hidden");
         playPauseBtn.childNodes[0].innerText = "play_circle";
     }
 }
