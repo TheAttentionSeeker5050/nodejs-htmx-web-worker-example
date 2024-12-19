@@ -95,9 +95,6 @@ function changeVideoTime(event) {
     videoPlayer.currentTime = newTime;
     bufferTimeStart = newTime;
     videoPlayer.play();
-
-
-
 }
 
 // as the video plays and the seconds change with progression, execute this on this event
@@ -141,8 +138,9 @@ function updateDownloadBuffer(event) {
     }
 
     const endValue = (100 / videoPlayer.duration) * videoPlayer.buffered.end(0);
-    
-    progressBarDownloadBuffer.innerText = `Buffering: ${endValue.toFixed(2)}% until second ${videoPlayer.buffered.end(0).toFixed(2)}s started at ${bufferTimeStart.toFixed(2)}s`;
+
+    // calculate download buffer fill percentage
+    progressBarDownloadBuffer.style.width = endValue < 98 ? `${endValue}%` : "97%";
 }
 
 export {
