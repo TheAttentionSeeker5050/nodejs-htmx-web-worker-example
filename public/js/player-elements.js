@@ -47,10 +47,12 @@ videoPlayer.addEventListener("progress", updateDownloadBuffer);
 function playPauseVideo() {
     if (videoPlayer.paused) {
         videoPlayer.play();
-        playPauseBtn.innerHTML = "Pause";
+
+        playPauseBtn.childNodes[0].innerText = "pause_circle";
+
     } else {
         videoPlayer.pause();
-        playPauseBtn.innerHTML = "Play";
+        playPauseBtn.childNodes[0].innerText = "play_circle";
     }
 }
 
@@ -61,10 +63,12 @@ function changeVolume() {
 function muteVolume() {
     if (videoPlayer.muted) {
         videoPlayer.muted = false;
-        muteBtn.innerHTML = "Mute";
+        muteBtn.childNodes[0].innerText = "volume_off";
+
     } else {
         videoPlayer.muted = true;
-        muteBtn.innerHTML = "Unmute";
+        muteBtn.childNodes[0].innerText = "volume_up";
+
     }
 }
 
@@ -80,11 +84,8 @@ function toggleFullScreen() {
     }
 }
 
-let abortController = null; // To handle fetch abortion
-let currentBlobUrl = null; // To track and revoke the current Blob URL
-
 // when we manually change the seek bar, we want to change the video time
-async function changeVideoTime() {
+function changeVideoTime(event) {
     // calculate the new time
     const newTime = videoPlayer.duration * (seekBar.value / 100);
     videoPlayer.currentTime = newTime;
@@ -93,7 +94,7 @@ async function changeVideoTime() {
     // TODO: add a logic to jump to an unbuffered zone and start loading from there
     videoPlayer.currentTime = newTime;
     bufferTimeStart = newTime;
-    await videoPlayer.play();
+    videoPlayer.play();
 
 
 
@@ -102,7 +103,7 @@ async function changeVideoTime() {
 // as the video plays and the seconds change with progression, execute this on this event
 function currentTimeUpdate() {
     // only do this if the video is playing
-    if (!videoPlayer.paused) {
+    if (!videoPlayer.paused) {        
         const value = (100 / videoPlayer.duration) * videoPlayer.currentTime;
         seekBar.value = value;
     }
@@ -116,7 +117,7 @@ function stalledOrErrorPlayer() {
 // function for when the video ends start over the current time and change the play button to play
 function videoEnded() {
     videoPlayer.currentTime = 0;
-    playPauseBtn.innerHTML = "Play";
+    playPauseBtn.childNodes[0].innerText = "play_circle";
     seekBar.value = 0;
 }
 
@@ -134,7 +135,6 @@ function videoWaiting() {
 // function to update the download buffer progress bar on progress event
 // this progress html tag has a start and end value
 function updateDownloadBuffer(event) {
-
     // if buffered is not empty
     if (videoPlayer.buffered.length === 0) {
         return;
@@ -144,11 +144,6 @@ function updateDownloadBuffer(event) {
     
     progressBarDownloadBuffer.innerText = `Buffering: ${endValue.toFixed(2)}% until second ${videoPlayer.buffered.end(0).toFixed(2)}s started at ${bufferTimeStart.toFixed(2)}s`;
 }
-
-
-
-
-
 
 export {
     videoPlayer,

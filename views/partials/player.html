@@ -1,0 +1,34 @@
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&icon_names=fullscreen,pause_circle,play_circle,skip_next,skip_previous,volume_off,volume_up" rel="stylesheet" />
+
+
+
+<!-- make a video widget -->
+<div id="video-player-widget" class="">
+    <div id="video-player-widget-wrapper" class="">
+        <video id="video-player" class="" type="video/mp4" src="/stream/canada.mp4">
+            
+        </video>
+
+        <div id="video-player-controls" class="">
+            <button id="play-pause-btn" class="button-transparent text-clickable-green" aria-label="play-pause-button"><span class="material-symbols-outlined">play_circle</span></button>
+            <div id="time-display" class="">
+                <!-- <div id="seek-bar" class=""></div> -->
+                <input id="seek-bar" class="" type="range" value="0" min="0" aria-label="seek-bar">
+                <!-- <div id="progress-bar-download-buffer"></div> -->
+            </div>
+            <button id="mute-btn" class="button-transparent text-clickable-green" aria-label="mute-button"><span class="material-symbols-outlined">volume_off</span></button>
+            <input id="volume-bar" class="" type="range" min="0" max="1" step="0.1" value="1" aria-label="volume-bar" >
+            <button id="full-screen-btn" class="button-transparent text-clickable-green" aria-label="full-screen-button">
+                <span class="material-symbols-outlined">
+                    fullscreen
+                </span>
+            </button>
+        </div>
+
+        <!-- a spinning wheel to show the data is loading -->
+        <div id="player-loading-wheel" class="hidden">Data Wheel here</div>
+
+        <!-- show an error messaage icon on stalled event -->
+        <div id="player-error-icon" class="hidden">Error Icon here</div>
+    </div>
+</div>

@@ -5,6 +5,8 @@ import { videoPlayer, playerLoadingWheel, playPauseBtn, volumeBar, muteBtn, full
 
 document.addEventListener("DOMContentLoaded", () => {
 
+  console.log("DOM fully loaded and parsed");
+
   let downloadQueue = [];
 
   // add listener for click on each video
