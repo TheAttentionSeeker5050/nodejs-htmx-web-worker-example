@@ -18,10 +18,18 @@
         text-align: left;
         height: 100%;
     }
+
+    
 }
 
 #playlist {
     .list-item-title {
         cursor: pointer;
     }
+
+    // if list-item is with attribute data-active highlight it
+    .list-item[data-active="true"] {
+        background-color: #acacac;
+    }
 }
+

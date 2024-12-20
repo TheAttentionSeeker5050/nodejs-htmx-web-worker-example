@@ -1,7 +1,7 @@
 import { formatSize, hideDownloadProgressAnimations, unhideDownloadProgressAnimations, progressText, completionWheel, message, downloadQueueTitle, videoBtnList } from "./utils.js";
 
 // import player buttons
-import { videoPlayer, playerLoadingWheel, playPauseBtn, volumeBar, muteBtn, fullScreenBtn, seekBar } from "./player-elements.js";
+import { videoPlayer, playerLoadingWheel, playPauseBtn, volumeBar, muteBtn, fullScreenBtn, seekBar, changeVideo,playerErrorIcon } from "./player-elements.js";
 
 import { playlist, addVideoToPlaylist } from "./playlist-elements.js";
 
@@ -28,7 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
           videoDownloadWorker.postMessage({ url: `/files/${downloadQueue[0]}`, status: "progress" });
         }
       } else if (clickAction === "play") {
-        console.log("Playing video: ", videoName);
+        // console.log("Playing video: ", videoName);
+        changeVideo(videoName);
       } else if (clickAction === "add-to-playlist") {
         addVideoToPlaylist(videoName);
       }

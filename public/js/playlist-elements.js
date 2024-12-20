@@ -1,3 +1,6 @@
+// import function  change playlist video
+import { changeVideo } from "./player-elements.js";
+
 // get elements by id
 const playlist = document.getElementById("playlist");
 const playlistTitle = document.getElementById("playlist-title");
@@ -46,6 +49,7 @@ function addVideoToPlaylist(videoName, position=-1) {
     const li = document.createElement("li");
     li.classList.add("list-item");
     li.setAttribute("data-video", videoName);
+    li.setAttribute("data-active", "false");
 
     const dragBtn = document.createElement("button");
     dragBtn.classList.add("list-item-btn");
@@ -65,6 +69,8 @@ function addVideoToPlaylist(videoName, position=-1) {
     const listItemtemTitle = document.createElement("span");
     listItemtemTitle.classList.add("list-item-title");
     listItemtemTitle.textContent = videoName;
+    // add on click event listener and change the player src url using imported function
+    listItemtemTitle.addEventListener("click", (event) => changeVideo(videoName));
     li.appendChild(listItemtemTitle);
     
     const deleteBtn = document.createElement("button");

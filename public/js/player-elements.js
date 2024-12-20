@@ -120,6 +120,24 @@ function videoEnded() {
     videoPlayer.currentTime = 0;
     playPauseBtn.childNodes[0].innerText = "play_circle";
     seekBar.value = 0;
+
+    // get the playlist
+    const playlist = document.getElementById("playlist");
+
+    // if playlist has no items, return
+    if (playlist.children.length === 0) {
+        return;
+    }
+
+    // look for the item next to the current active item
+    const activeItem = playlist.querySelector("li[data-active='true']");
+    const nextItem = activeItem.nextElementSibling;
+
+    // if there is a next item, play it
+    if (nextItem) {
+        const videoName = nextItem.getAttribute("data-video");
+        changeVideo(videoName);
+    }
 }
 
 // function for when the video can play
@@ -147,6 +165,31 @@ function updateDownloadBuffer(event) {
     progressBarDownloadBuffer.style.width = endValue < 98 ? `${endValue}%` : "97%";
 }
 
+// make a function to change the video by video name
+function changeVideo(videoName) {
+    // get the video source element
+    videoPlayer.src = `/stream/${videoName}`;
+    videoPlayer.play();
+    playPauseBtn.childNodes[0].innerText = "pause_circle";
+
+    const playlist = document.getElementById("playlist");
+
+    // if playlist has no elements, return
+    if (playlist.children.length === 0) {
+        return;
+    }
+
+    // remove is-active all the list items in playlist class
+    playlist.querySelectorAll("li").forEach(item => {
+        item.setAttribute("data-active", "false");
+    }); 
+
+    // look for the first item with the video name and set attribute data-active to true
+    const playlistItem = playlist.querySelector(`li[data-video="${videoName}"]`);
+    playlistItem.setAttribute("data-active", "true");
+
+}
+
 export {
     videoPlayer,
     playPauseBtn,
@@ -156,5 +199,6 @@ export {
     seekBar,
     playerLoadingWheel,
     progressBarDownloadBuffer,
-    playerErrorIcon
+    playerErrorIcon,
+    changeVideo,
 }
