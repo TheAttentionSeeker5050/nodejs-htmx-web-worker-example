@@ -30,7 +30,7 @@ This project demonstrates the use of **Node.js**, **Express**, **HTMX**, and **W
 │   ├── index.html             # Main layout file
 │   └── partials/
 │       └── content.html       # Content template for rendering inner UI
-├── app.js                     # Express server configuration
+├── index.js                     # Express server configuration
 ├── sass/
 │   └── main.scss              # SASS file for styles
 ├── project-gif-screenshot.gif # Animated screenshot showcasing the project

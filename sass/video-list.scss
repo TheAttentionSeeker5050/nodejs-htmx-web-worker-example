@@ -1,0 +1,39 @@
+.video-list {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    padding: 20px;
+
+    .list-item {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        // gap: 10px;
+    }
+
+    .list-item-title {
+        flex-grow: 1;
+        text-align: left;
+        height: 100%;
+    }
+
+    
+}
+
+#playlist {
+    .list-item-title {
+        cursor: pointer;
+    }
+
+    // if list-item is with attribute data-active highlight it
+    .list-item[data-active="true"] {
+        background-color: #838383;
+    }
+
+    .list-item:hover {
+        background-color: #dbdbdb;
+    }
+}
+
