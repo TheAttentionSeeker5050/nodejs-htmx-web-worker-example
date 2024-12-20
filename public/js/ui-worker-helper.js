@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (status === "progress") {
       downloadQueueTitle.classList.remove("hidden");
       // Update the completion wheel with progress
-      completionWheel.style.background = `conic-gradient(#4CAF50 ${progress}%, #ddd ${progress}%)`;
+      completionWheel.style.background = `conic-gradient(#007bff ${progress}%, #ddd ${progress}%)`;
       progressText.textContent = `${progress}% (${formatSize(downloadedSize)} of ${formatSize(totalSize)})`;
     } else if (status === "complete") {
       // Create a download link for the Blob

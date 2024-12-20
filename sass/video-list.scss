@@ -29,7 +29,11 @@
 
     // if list-item is with attribute data-active highlight it
     .list-item[data-active="true"] {
-        background-color: #acacac;
+        background-color: #838383;
+    }
+
+    .list-item:hover {
+        background-color: #dbdbdb;
     }
 }
 

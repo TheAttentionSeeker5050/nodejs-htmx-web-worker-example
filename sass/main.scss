@@ -87,7 +87,7 @@ button {
   border-radius: 50%;
   position: relative;
   margin: 20px auto;
-  background: conic-gradient(#4CAF50 0%, #ddd 0%);
+  background: conic-gradient($blue 0%, #ddd 0%);
   transition: $background 0.5s ease-in-out;
 }
 
