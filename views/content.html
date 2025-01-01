@@ -1,18 +1,40 @@
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&icon_names=delete,download,drag_handle,fullscreen,pause_circle,play_arrow,play_circle,playlist_add,skip_next,skip_previous,volume_off,volume_up" rel="stylesheet" />
+
 <%- header %>
 
 <div class="container">
-
-    <!-- a list of transparent buttons with green text -->
-    <h2 class="video-list-title">Video List</h2>
-    <ul id="video-list" class="video-list">
-        <% videosList.forEach(video => { %>
-            <li class="video-list-item">
-                <button class="video-list-item-btn button-transparent text-clickable-green" data-video="<%= video %>"> <!-- data-video is the name of the video, these data attributes are used to store custom data using semantic HTML, with this we will build the list back on the client side web worker -->
-                    <%= video %>
-                </button>
-            </li>
-        <% }) %>
-    </ul>
+    <%- player %>
+    <%- playlist %>
+    <div>
+        <!-- a list of transparent buttons with green text -->
+        <h2 class="video-list-title">Video List</h2>
+        <ul id="video-list" class="video-list">
+            <% videosList.forEach(video => { %>
+                <li class="list-item">
+                    <span class="list-item-title">
+                        <%= video %>
+                    </span>
+                    <button class="video-list-item-btn button-transparent text-clickable-green" data-video="<%= video %>" data-action="download"> <!-- data-video is the name of the video, these data attributes are used to store custom data using semantic HTML, with this we will build the list back on the client side web worker -->
+                        <span class="material-symbols-outlined">
+                            download
+                        </span>
+                    </button>
+                    <button class="video-list-item-btn button-transparent text-clickable-green" data-video="<%= video %>" data-action="add-to-playlist"> <!-- data-video is the name of the video, these data attributes are used to store custom data using semantic HTML, with this we will build the list back on the client side web worker -->
+                        <!-- Add to Playlist -->
+                        <span class="material-symbols-outlined">
+                            playlist_add
+                        </span>
+                    </button>
+                    <button class="video-list-item-btn button-transparent text-clickable-green" data-video="<%= video %>" data-action="play"> <!-- data-video is the name of the video, these data attributes are used to store custom data using semantic HTML, with this we will build the list back on the client side web worker -->
+                        <!-- Add to Playlist -->
+                        <span class="material-symbols-outlined">
+                            play_arrow
+                        </span>
+                    </button>
+                </li>
+            <% }) %>
+        </ul>
+    </div>
 
     <!-- list for the download queue -->
     <h2 id="download-queue-title" class="download-queue-title hidden">Download Queue</h2>
@@ -28,6 +50,7 @@
 
 </div>
 
+<script src="/js/player-elements.js" type="module"></script>
 <script src="/js/ui-worker-helper.js" type="module"></script>
 
 

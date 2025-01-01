@@ -1,5 +1,10 @@
 import { formatSize, hideDownloadProgressAnimations, unhideDownloadProgressAnimations, progressText, completionWheel, message, downloadQueueTitle, videoBtnList } from "./utils.js";
 
+// import player buttons
+import { videoPlayer, playerLoadingWheel, playPauseBtn, volumeBar, muteBtn, fullScreenBtn, seekBar, changeVideo,playerErrorIcon } from "./player-elements.js";
+
+import { playlist, addVideoToPlaylist } from "./playlist-elements.js";
+
 document.addEventListener("DOMContentLoaded", () => {
 
   let downloadQueue = [];
@@ -9,7 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
   videoBtnList.forEach((video) => {
     video.addEventListener("click", () => {
       const videoName = video.getAttribute("data-video");
-      if (!downloadQueue.includes(videoName)) {
+      const clickAction = video.getAttribute("data-action");
+      if (!downloadQueue.includes(videoName) && clickAction === "download") {
         downloadQueue.push(videoName);
         addToDOMList(videoName); // Display the download list in the DOM
 
@@ -21,6 +27,11 @@ document.addEventListener("DOMContentLoaded", () => {
       
           videoDownloadWorker.postMessage({ url: `/files/${downloadQueue[0]}`, status: "progress" });
         }
+      } else if (clickAction === "play") {
+        // console.log("Playing video: ", videoName);
+        changeVideo(videoName);
+      } else if (clickAction === "add-to-playlist") {
+        addVideoToPlaylist(videoName);
       }
     });
   });
@@ -109,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (status === "progress") {
       downloadQueueTitle.classList.remove("hidden");
       // Update the completion wheel with progress
-      completionWheel.style.background = `conic-gradient(#4CAF50 ${progress}%, #ddd ${progress}%)`;
+      completionWheel.style.background = `conic-gradient(#007bff ${progress}%, #ddd ${progress}%)`;
       progressText.textContent = `${progress}% (${formatSize(downloadedSize)} of ${formatSize(totalSize)})`;
     } else if (status === "complete") {
       // Create a download link for the Blob

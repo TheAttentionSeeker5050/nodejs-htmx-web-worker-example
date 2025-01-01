@@ -1,0 +1,108 @@
+// import colors.scss
+@use 'colors.scss' as *;
+
+#video-player-widget-wrapper {
+    // this will hold the video player superposed with the controls section
+
+    position: relative;
+    min-width: 300px;
+    max-width: 1200px;
+    aspect-ratio: 16/9;
+    height: min-content;
+
+    #video-player {
+        // this will hold the video player
+        width: 100%;
+        height: min-content;
+        position: absolute;
+        aspect-ratio: 16/9;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1000;
+    }
+
+    #video-player-controls {
+        span {
+            color: $blue !important;
+        }
+
+
+        // this will hold the controls section
+        margin-top: auto;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1001;
+
+        background-color: #b0b0b0;
+        opacity: 0.95;
+
+        display: flex;
+        flex-direction: row;
+        gap: 4px;
+        justify-content: space-between;
+
+        #time-display {
+
+            flex-grow: 1;
+            position: relative;
+            #seek-bar, #progress-bar-download-buffer {
+                width: auto;
+                left: 0;
+                right: 0;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                margin: auto 0;
+            }
+
+            #seek-bar {
+                z-index: 1002;
+                opacity: 0.7;
+                border-radius: 4px;
+                left: 0;
+                right: 0;
+                height: 12px;
+                cursor: pointer;
+            }
+
+            #progress-bar-download-buffer {
+                z-index: 1001;
+                width: 0;
+                background-color: #272727;
+                height: 4px;
+                left: 6px;
+                right: 6px;
+            }
+            
+        }
+    }
+
+}
+
+
+#player-error-icon-disabled {
+    // this will hold the error icon
+
+    position: relative;
+    top: 50%;
+    left: 50%;
+    z-index: 1002;
+}
+
+#big-play-btn {
+    // place at center of player container
+    z-index: 2000;
+    position: relative;
+    opacity: 1;
+
+    .material-symbols-outlined {
+        font-size: 96px;
+
+    }
+    // font-variation-settings: 'opsz' 72;
+}
